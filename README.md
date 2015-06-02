@@ -8,9 +8,20 @@ This project will utilize a number of [jQuery UI](https://jqueryui.com/) compone
 
 ![screenshot](main.png)
 
+## Setup
+
+1. JScript front end
+  * cd into `js`
+  * `http-server`
+1. Rails API
+  * cd into `tasks_app`
+  * `bundle`
+  * `rake db:create`
+  * `rails s`
+
 ### Iteration One | Accordions
 
-Create markup that consists of a section for loading tasks from the database, and another section that will hold the list of tasks for the day. There should be three different categories for the tasks, and they should have headers that function as [accordions](https://jqueryui.com/accordion/). 
+Create markup that consists of a section for loading tasks from the database, and another section that will hold the list of tasks for the day. There should be three different categories for the tasks, and they should have headers that function as [accordions](https://jqueryui.com/accordion/).
 
 ### Iteration Two | Drag-and-Drop
 
