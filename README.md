@@ -6,6 +6,8 @@ The application will request these tasks from the server, load them on the clien
 
 This project will utilize a number of [jQuery UI](https://jqueryui.com/) components to build an interactive interface.
 
+![screenshot](main.png)
+
 ### Iteration One | Accordions
 
 Create markup that consists of a section for loading tasks from the database, and another section that will hold the list of tasks for the day. There should be three different categories for the tasks, and they should have headers that function as [accordions](https://jqueryui.com/accordion/). 
