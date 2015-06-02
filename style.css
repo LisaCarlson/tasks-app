@@ -1,0 +1,33 @@
+.container {
+	font-family: "Indie Flower" !important;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.ui-widget-header {
+	background: rgba(0,0,0,0.7);
+	border: none;
+	padding: 5px 25px;
+	border-radius: 25px 5px 0px 0px;
+	margin-bottom: 0px;
+}
+
+.ui-accordion-header {
+	margin-top: 0px !important;
+	border-radius: 0px;
+	border: 1px solid rgba(0,0,0,0.1);
+	background: none;
+	font-family: "Indie Flower" !important;
+}
+
+.ui-accordion-header a {
+	color: #669900 !important;
+}
+
+ul {
+	font-family: "Indie Flower" !important;
+}
+
+.ui-draggable.ui-draggable-handle:hover {
+	cursor: crosshair;
+}

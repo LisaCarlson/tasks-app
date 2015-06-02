@@ -4,7 +4,77 @@
 	<meta charset="utf-8">
 	<title>jQuery UI Example Page</title>
 	<link href="jquery-ui.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<script src="external/jquery/jquery.js"></script>
 	<script src="jquery-ui.js"></script>
+  <script>
+	  $(function() {
+	    $( "#list" ).accordion();
+	    $( "#list li" ).draggable({
+	      appendTo: "body",
+	      helper: "clone"
+	    });
+	    $( "#plan ol" ).droppable({
+	      activeClass: "ui-state-default",
+	      hoverClass: "ui-state-hover",
+	      accept: ":not(.ui-sortable-helper)",
+	      drop: function( event, ui ) {
+	        $( this ).find( ".placeholder" ).remove();
+	        $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+	        debugger
+	      }
+	    }).sortable({
+	      items: "li:not(.placeholder)",
+	      sort: function() {
+	        // gets added unintentionally by droppable interacting with sortable
+	        // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+	        $( this ).removeClass( "ui-state-default" );
+	      }
+	    });
+	  });
+  </script>
+</head>
+<body>
+	<div class="container">
+		<div id="tasks">
+		  <h1 class="ui-widget-header">Tasks</h1>
+		  <div id="list">
+		    <h2><a href="#">Health</a></h2>
+		    <div>
+		      <ul>
+		        <li>Wrestle a bear</li>
+		        <li>Sleep in the mountains</li>
+		        <li>Meditate</li>
+		      </ul>
+		    </div>
+		    <h2><a href="#">Wealth</a></h2>
+		    <div>
+		      <ul>
+		        <li>Kill code</li>
+		        <li>Underwater basket weaving</li>
+		        <li>Racoon hunting</li>
+		      </ul>
+		    </div>
+		    <h2><a href="#">Soul</a></h2>
+		    <div>
+		      <ul>
+		        <li>Sing to the mountain</li>
+		        <li>Ski down the flatirons</li>
+		        <li>Howl at the moon</li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>
+		 
+		<div id="plan">
+		  <h1 class="ui-widget-header">Daily Plan</h1>
+		  <div class="ui-widget-content">
+		    <ol>
+		      <li class="placeholder">Drag your tasks here</li>
+		    </ol>
+		  </div>
+		</div>
+	</div>
 </body>
 </html>
