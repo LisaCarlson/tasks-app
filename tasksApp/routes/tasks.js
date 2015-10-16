@@ -18,4 +18,10 @@ router.post('/', function(req, res) {
   });
 });
 
+router.delete('/:id', function(req, res) {
+  taskCollection.remove({_id: req.params.id}, function(err) {
+        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    });
+});
+
 module.exports = router;

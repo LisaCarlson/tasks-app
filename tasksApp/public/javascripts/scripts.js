@@ -1,5 +1,6 @@
 $(document).ready(function(){
   loadTasks();
+  
   function renderTasks(object) {
     $('ul.health').html('');
     $('ul.wealth').html('');
@@ -18,7 +19,7 @@ $(document).ready(function(){
       var description = task.description;
       var $ul = $('ul.'+category);
       if(headers.indexOf(category) > -1) {
-        $ul.append('<li><a href="#" class="delete btn btn-danger rel="' + task._id + '"><i class="glyphicon glyphicon-trash"></i></a>'+description+'</li>');   
+        $ul.append('<li><a href="#" class="delete btn btn-danger" rel="' + task._id + '"><i class="glyphicon glyphicon-trash"></i></a>'+description+'</li>');   
       }
     }
     $("#accordion").accordion({
@@ -53,11 +54,27 @@ $(document).ready(function(){
     });  
   }
 
+  function deleteTask(event) {
+      event.preventDefault();
+      var elem = $(event.currentTarget);
+      var taskId = elem.attr('rel');
+        $.ajax({
+          type: 'DELETE',
+          url: '/tasks/' + taskId
+        }).done(function( response ) {
+          if (response.msg === '') {
+          }
+          else {
+            alert('Error: ' + response.msg);
+          }
+          loadTasks();
+        });
+  };
+
   $('#add').on('click', function(){
     var description = $('#description').val();
     var category = $("input[type=checkbox]:checked").val();
     var data = {'category': category, 'description': description};
-    console.log(data);
     $.ajax({
       type:'POST',
       data: data,
@@ -73,5 +90,20 @@ $(document).ready(function(){
     });  
     $('#myModal').modal('hide');
   });
+
+  $('#accordion').on('click', '.delete', function(event){
+    deleteTask(event);
+  });
   
 });
+
+
+
+
+
+
+
+
+
+
+
