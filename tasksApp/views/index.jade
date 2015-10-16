@@ -19,35 +19,60 @@ block content
           a(href='/signout') Sign Out
   .container
     .row
-      .col-md-6.col-md-offset-3
-        .panel.panel-warning
+      .col-md-6
+        .panel.panel-warning.margin-top
           #tasks.panel-heading
             h3.panel-title.text-center Tasks
           .panel-body
             #accordion
               h3 Health 
               div
-                ul
-                  li Run 3 miles
-                  li MMA class
-                  li Make gross green smoothie
+                ul.health
+              //-     li Make gross green smoothie
               h3 Wealth
               div
-                ul
-                  li Give to charity
-                  li Balance checkbook
+                ul.wealth
               h3 Soul
               div
-                ul
-                  li Sing to the mountain
-                  li Howl at the moon
-                  li Climb the flatirons
-    .row
-      .col-md-6.col-md-offset-3
-        .panel.panel-primary
+                ul.soul
+              //-     li Sing to the mountain
+              //-     li Howl at the moon
+              //-     li Climb the flatirons
+      .col-md-6
+        .panel.panel-primary.margin-top
           .panel-heading
             h3.panel-title.text-center Daily Plan
           .panel-body.ui-widget-content
             ol.placeholder Add your tasks here
+    .row
+      .col-md-4
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h4#myModalLabel.modal-title.strong Add a Task
+              .modal-body
+                h4 Choose a Category
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="health")
+                  input.form-control(type='text' value="health")
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="wealth")
+                  input.form-control(type='text' value="wealth")
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="soul")
+                  input.form-control(type='text' value="soul")
+                h4 Add a description
+                  textarea(id='description')
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(id='add' type='button') Add Task
+        button.btn.btn-success.margin-top(type='button', data-toggle='modal', data-target='#myModal') Add a Task
+     
 
             
