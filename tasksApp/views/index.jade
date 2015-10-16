@@ -1,21 +1,52 @@
 extends layout
 
 block content
+  nav.navbar.navbar-default.navbar-static-top
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') My Tasks
+      ul.nav.navbar-nav.navbar-right
+        li
+          h4.navbar-text 
+            i(class='glyphicon glyphicon-user')  
+              span.user #{username}
+        li
+          a(href='/signout') Sign Out
   .container
     .row
       .col-md-6.col-md-offset-3
         .panel.panel-warning
-          .panel-heading
+          #tasks.panel-heading
             h3.panel-title.text-center Tasks
           .panel-body
             #accordion
-              h3 Health
+              h3 Health 
               div
-                p This is the first sentence.
+                ul
+                  li Run 3 miles
+                  li MMA class
+                  li Make gross green smoothie
               h3 Wealth
               div
-                p This is the second sentence.
+                ul
+                  li Give to charity
+                  li Balance checkbook
               h3 Soul
               div
-                p This is the third sentence.
+                ul
+                  li Sing to the mountain
+                  li Howl at the moon
+                  li Climb the flatirons
+    .row
+      .col-md-6.col-md-offset-3
+        .panel.panel-primary
+          .panel-heading
+            h3.panel-title.text-center Daily Plan
+          .panel-body
+
             

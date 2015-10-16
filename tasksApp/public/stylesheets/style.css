@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font-family: 'Coming Soon', cursive;
   font-size: 16px;
   font-weight: bold;
@@ -7,14 +6,34 @@ body {
 
 .panel {
   box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-
+  border-radius: 15px;
 }
 
-.panel-title {
+.panel-heading {
+  border-radius: 15px;
+}
+
+.ui-accordion-header {
   font-family: 'Coming Soon', cursive;
-  font-size: 30px;
+  font-weight: bold;
+}
+
+.ui-state-default.ui-accordion-header {
+  background: #f8f5f0;
+}
+.ui-state-default.ui-accordion-header:hover {
+  background: #e8decd;
+}
+.panel .panel-title {
+  font-family: 'Coming Soon', cursive;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ui-accordion .ui-accordion-content {
+  font-family: 'Coming Soon', cursive;
+  font-weight: normal;
+  text-decoration: none;
 }
 
 a {
