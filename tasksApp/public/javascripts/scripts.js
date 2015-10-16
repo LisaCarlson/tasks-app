@@ -35,8 +35,10 @@ $(document).ready(function(){
           hoverClass: "ui-state-hover",
           accept: ":not(.ui-sortable-helper)",
           drop: function( event, ui ) {
+            var task_id = $(ui.draggable.html()).attr('rel');
+            console.log(task._id);
             $( this ).find( ".placeholder" ).remove();
-            $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+            $( '<li></li>' ).text( ui.draggable.text() ).prepend('<a href="#" class="delete btn btn-danger" rel="' + task_id + '"><i class="glyphicon glyphicon-trash"></i></a>').appendTo( this );
           }
         }).sortable({
           items: "li:not(.placeholder)",
@@ -87,12 +89,18 @@ $(document).ready(function(){
       else {
         alert('Error: ' + response.msg);
       }
-    });  
+    });
+    $('textarea').val('');
+    $("input[type=checkbox]:checked").prop('checked', false);
     $('#myModal').modal('hide');
   });
 
   $('#accordion').on('click', '.delete', function(event){
     deleteTask(event);
+  });
+  $('.daily').on('click', '.delete', function(event){
+    event.preventDefault();
+    $(this).parent().remove();
   });
   
 });
