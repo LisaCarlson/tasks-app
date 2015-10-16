@@ -24,6 +24,9 @@ body {
 .ui-state-default.ui-accordion-header:hover {
   background: #e8decd;
 }
+
+
+
 .panel .panel-title {
   font-family: 'Coming Soon', cursive;
   font-size: 16px;
@@ -39,4 +42,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+.panel-body {
+  height: 300px;
+}
+
+.ui-widget-content {
+  background: transparent;
+  border: 0;
+}
+
+#accordion ul {
+  list-style-type: none;
+}
+
+.ui-droppable.ui-sortable:hover {
+  background: #f8f5f0;
+}
+
+.ui-state-hover {
+  background: #f8f5f0;
+}
+
+
+
+
+
+
 
